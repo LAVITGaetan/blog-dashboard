@@ -2,6 +2,11 @@
     margin-bottom: 24px;
 }
 
+.thumbnail {
+    border-radius: 2px;
+    margin-bottom: 24px;
+}
+
 .item-link {
     cursor: pointer;
     font-size: 18px;

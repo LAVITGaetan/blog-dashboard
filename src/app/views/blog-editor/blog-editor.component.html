@@ -3,6 +3,11 @@
     <app-topbar class="topbar"></app-topbar>
     <section class="blog-section content">
         <form id="editor" class="editor" [formGroup]="blogForm" (ngSubmit)="createBlog()">
+            <div class="thumbnail">
+                <label class="form-label">Photo de couverture</label>
+                <input class="editor-file" type="file" (change)="selectFile($event)">
+            </div>
+            <p></p>
             <div class="editor-group">
                 <input class="editor-title" type="text" formControlName="title" placeholder="Titre de l'article">
             </div>

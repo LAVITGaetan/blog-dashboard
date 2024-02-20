@@ -6,6 +6,7 @@ import { TopbarComponent } from '../topbar/topbar.component';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
 
 @Component({
   selector: 'app-blog-editor',
@@ -15,19 +16,33 @@ import { Router } from '@angular/router';
   styleUrl: './blog-editor.component.css'
 })
 export class BlogEditorComponent {
-  constructor(private db: FirebaseService, private renderer: Renderer2, private router: Router) { }
+  constructor(private db: FirebaseService, private renderer: Renderer2, private router: Router, private fireStorage: AngularFireStorage) { }
+  selectedFile : any
   componentListShowed: boolean = false
   idCount: number = 0
   custom_fields: any[] = []
   blogForm = new FormGroup({
-    title: new FormControl('Mon nouvel article', [Validators.required, Validators.minLength(6)]),
-    description: new FormControl('Ma description', [Validators.required, Validators.minLength(6)]),
+    title: new FormControl('Titre de mon article', [Validators.required, Validators.minLength(6)]),
+    description: new FormControl('Description de mon article', [Validators.required, Validators.minLength(6)]),
   })
 
-  createBlog() {
+  selectFile(e: any) {
+    let file = e.target.files[0]
+    this.selectedFile = file
+  }
+
+  async createBlog() {
+    let thumbnail : string = ''
+    if (this.selectedFile !== null) {
+      const path = `blogs/${this.selectedFile.name}`
+      const uploadTask = await this.fireStorage.upload(path, this.selectedFile)
+      const url = await uploadTask.ref.getDownloadURL()
+      thumbnail = url
+    }
     let data = {
       title: this.blogForm.get('title')?.value,
       description: this.blogForm.get('description')?.value,
+      thumbnail: thumbnail,
       fields: [] as { type: string, value: string, order: number, href: string }[]
     }
     this.custom_fields.forEach(field => {

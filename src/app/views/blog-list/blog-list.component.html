@@ -10,6 +10,7 @@
                 <div class="blog-flex">
                     <div class="blog-card" *ngFor="let blog of blogs">
                         <div class="card-thumbnail">
+                            <img class="thumbnail" [src]="blog.data.thumbnail" alt="Image de couverture">
                         </div>
                         <h1 class="card-title">{{blog.data.title}}</h1>
                         <p class="card-description">{{blog.data.description}}</p>
