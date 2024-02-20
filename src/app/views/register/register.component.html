@@ -1,0 +1,21 @@
+<form class="form" [formGroup]="registerForm" (ngSubmit)="register()">
+    <img class="form-icon" width="64px" height="64px" src="./assets/frontend/icon-auth.svg" alt="auth">
+    <h1 class="form-title">Inscription</h1>
+    <div class="form-group">
+        <label class="form-label">Nom d'utilisateur</label>
+        <input class="form-input" type="text" formControlName="username">
+    </div>
+    <div class="form-group">
+        <label class="form-label">Email</label>
+        <input class="form-input" type="text" formControlName="email">
+    </div>
+    <div class="form-group">
+        <label class="form-label">Mot de passe</label>
+        <input class="form-input" type="password" formControlName="password">
+    </div>
+    <div class="form-group">
+        <input [disabled]="!registerForm.valid" class="form-action" type="submit" value="Créer mon compte">
+    </div>
+    <div class="loading" *ngIf="isLoading"><img class="loading-spinner" width="32px" height="32px"
+        src="./assets/frontend/icon-loading.svg" alt="loading"><span class="loading-text">Inscription en cours</span></div>
+</form>

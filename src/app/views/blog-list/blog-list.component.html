@@ -1,0 +1,21 @@
+<div class="layout">
+    <app-sidebar class="sidebar"></app-sidebar>
+    <app-topbar class="topbar"></app-topbar>
+    <section class="blog-section content">
+        <h2 class="content-title">Liste des blogs</h2>
+
+        <div class="loading" *ngIf="isLoading"><img class="loading-spinner" width="32px" height="32px"
+                src="./assets/frontend/icon-loading.svg" alt="loading"><span class="loading-text">Chargement des
+                données</span></div>
+                <div class="blog-flex">
+                    <div class="blog-card" *ngFor="let blog of blogs">
+                        <div class="card-thumbnail">
+                        </div>
+                        <h1 class="card-title">{{blog.data.title}}</h1>
+                        <p class="card-description">{{blog.data.description}}</p>
+                        <a class="card-link" [href]="'blogs/' + blog.id">Lire l' article</a>
+                    </div>
+                </div>
+
+    </section>
+</div>

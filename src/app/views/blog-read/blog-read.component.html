@@ -1,0 +1,21 @@
+<div class="layout">
+    <app-sidebar class="sidebar"></app-sidebar>
+    <app-topbar class="topbar"></app-topbar>
+    <section class="blog-section content">
+        <div class="loading" *ngIf="isLoading"><img class="loading-spinner" width="32px" height="32px"
+                src="./assets/frontend/icon-loading.svg" alt="loading"><span class="loading-text">Chargement de
+                l'article</span></div>
+        <div *ngIf="!isLoading">
+            <h2 class="content-title">{{blog.title}}</h2>
+            <h3 class="content-subtitle">{{blog.description}}</h3>
+            <div class="content-item" *ngFor="let field of blog.fields">
+
+                <a target="_blank" class="item-link" *ngIf="field.type === 'button'" [href]="field.href">{{field.value}}</a>
+                <p class="item-text" *ngIf="field.type === 'text'">{{field.value}}</p>
+                <h3 class="item-title" *ngIf="field.type === 'title'">{{field.value}}</h3>
+
+
+            </div>
+        </div>
+    </section>
+</div>

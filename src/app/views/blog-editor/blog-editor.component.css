@@ -1,0 +1,166 @@
+.editor {
+    position: relative;
+    padding-bottom: 64px;
+    margin: 24px;
+}
+
+
+.content {
+    overflow: auto;
+}
+
+
+.editor-title {
+    padding: 12px;
+    width: 100%;
+    font-size: 24px;
+    border-radius: 2px;
+    outline: none;
+    border: none;
+    background-color: var(--clr-main);
+    color: var(--clr-white);
+    background-color: var(--clr-main);
+    font-weight: bold;
+}
+
+.editor-description {
+    padding: 12px;
+    width: 100%;
+    font-size: 20px;
+    border-radius: 2px;
+    outline: none;
+    border: none;
+    background-color: var(--clr-main);
+    color: var(--clr-white);
+}
+
+.editor-submit {
+    position: fixed;
+    bottom: 64px;
+    right: 64px;
+    z-index: 1000;
+}
+
+.editor-action {
+    cursor: pointer;
+    font-size: 18px;
+    background-color: var(--clr-accent);
+    text-align: center;
+    color: var(--clr-white);
+    font-weight: 600;
+    padding: 12px;
+    outline: none;
+    border: none;
+    border-radius: 2px;
+}
+
+::ng-deep .editor-group {
+    width: 100%;
+    margin-bottom: 24px;
+    position: relative;
+}
+
+::ng-deep .group-close {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background-color: var(--clr-accent);
+    border-radius: 2px;
+    top: -16px;
+    right: -16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--clr-white);
+    cursor: pointer;
+}
+
+::ng-deep .editor-text {
+    padding: 12px;
+    width: 100%;
+    font-size: 16px;
+    border-radius: 2px;
+    outline: none;
+    border: none;
+    background-color: var(--clr-main);
+    color: var(--clr-white);
+    border: 2px solid var(--clr-grey);
+}
+
+::ng-deep ::placeholder {
+    color: var(--clr-grey);
+}
+
+.disabled {
+    cursor: not-allowed;
+    background-color: var(--clr-grey);
+}
+
+.editor-new {
+    width: 48px;
+    height: 48px;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: var(--clr-white);
+    background-color: var(--clr-accent);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    cursor: pointer;
+}
+
+.component-list {
+    width: 100%;
+    background-color: var(--clr-main);
+    padding: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    position: absolute;
+    top: 25vh;
+    left: 25%;
+    width: 50%;
+    height: fit-content;
+    max-height: 50vh;
+    overflow: auto;
+    border: 2px solid var(--clr-accent);
+    box-shadow: 0 0 100px 5px #00000090
+}
+
+.list-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--clr-white);
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.list-item {
+    width: fit-content;
+    padding: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--clr-main);
+}
+
+.list-close {
+    width: 100%;
+}
+
+.close-button {
+    padding: 12px;
+    background-color: var(--clr-accent);
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    outline: none;
+    margin-top: 24px;
+    cursor: pointer;
+    color: var(--clr-white);
+}

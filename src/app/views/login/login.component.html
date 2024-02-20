@@ -1,0 +1,17 @@
+<form class="form" [formGroup]="loginForm" (ngSubmit)="login()">
+    <img class="form-icon" width="64px" height="64px" src="./assets/frontend/icon-auth.svg" alt="auth">
+    <h1 class="form-title">Connexion</h1>
+    <div class="form-group">
+        <label class="form-label">Email</label>
+        <input class="form-input" type="text" formControlName="email">
+    </div>
+    <div class="form-group">
+        <label class="form-label">Mot de passe</label>
+        <input class="form-input" type="password" formControlName="password">
+    </div>
+    <div class="form-group">
+        <input [disabled]="!loginForm.valid" class="form-action" type="submit" value="Me connecter">
+    </div>
+    <div class="loading" *ngIf="isLoading"><img class="loading-spinner" width="32px" height="32px"
+        src="./assets/frontend/icon-loading.svg" alt="loading"><span class="loading-text">Connexion</span></div>
+</form>

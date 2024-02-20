@@ -1,0 +1,30 @@
+<div class="layout">
+    <app-sidebar class="sidebar"></app-sidebar>
+    <app-topbar class="topbar"></app-topbar>
+    <section class="blog-section content">
+        <form id="editor" class="editor" [formGroup]="blogForm" (ngSubmit)="createBlog()">
+            <div class="editor-group">
+                <input class="editor-title" type="text" formControlName="title" placeholder="Titre de l'article">
+            </div>
+            <div class="editor-group">
+                <input class="editor-description" type="text" formControlName="description"
+                    placeholder="Description de l'article">
+            </div>
+            <div class="editor-submit">
+                <input [disabled]="!blogForm.valid" [class.disabled]="!blogForm.valid" class="editor-action"
+                    type="submit" value="Créer mon article">
+            </div>
+            <div class="editor-new" (click)="showComponentlist()">+</div>
+        </form>
+    </section>
+</div>
+<div *ngIf="componentListShowed" class="component-list">
+    <h3 class="list-title">Choisissez un élément à ajouter</h3>
+    <button class="list-item" (click)="addElement('title')">Titre</button>
+    <button class="list-item" (click)="addElement('text')">Paragraphe</button>
+    <button class="list-item" (click)="addElement('button')">Bouton</button>
+    <div class="list-close">
+        <button class="close-button" (click)="showComponentlist()">Annuler</button>
+
+    </div>
+</div>
